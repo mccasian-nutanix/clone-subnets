@@ -11,11 +11,9 @@ This repository contains a small utility to copy VLAN-backed subnets from one Nu
 
 **Usage**
 
-- Run the script with the required flags:
 
   `python clone_subnets.py -s SOURCE_CLUSTER -d DEST_CLUSTER -v SOURCE_BRIDGE -x DEST_BRIDGE -u API_USER -p API_PASS --log-level LEVEL`
 
-- Flags (from [util/arguments.py](util/arguments.py)):
   - **-s / --source-cluster**: source cluster address
   - **-d / --destination-cluster**: destination cluster address
   - **-v / --source-bridge**: source virtual switch name
@@ -24,9 +22,14 @@ This repository contains a small utility to copy VLAN-backed subnets from one Nu
   - **-p / --api-pass**: API password
   - **--log-level**: logging level (e.g., INFO, DEBUG)
 
+**Screenshot**
+
+![Usage screenshot](assets/screenshot.png)
+
 **Behavior**
 
 - The script connects to both clusters via APIv2 and retrieves the configured networks.
+- The script connects to both clusters via APIv2 and retrieves the configured networks. It supports copying between bridges that reside on different clusters — the tool queries each cluster independently and compares destination state before creating subnets.
 - It prints a table of subnets found on the source bridge with these columns: **Name**, **VLAN**, **Present on Destination**, **DHCP**, **DHCP Server**, **Subnet**, **Gateway**.
 - After showing the table the script asks for a copy mode:
   - **A**: Automatic — copy all missing subnets to the destination
