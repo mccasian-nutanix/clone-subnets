@@ -1,0 +1,13 @@
+python3 clone_subnets.py --source-cluster=earth.spacex.nasa.com --destination-cluster=mars.spacex.nasa.com --source-bridge=br0 --destination-bridge=br1 --api-user=alien --api-pass=reborn2040 --log-level=INFO
+2025-12-02 23:03:45 COPY_SUBNETS - INFO - script is started
+Name                                                         VLAN  Present on Destination  DHCP  DHCP Server    Subnet           Gateway     
+-----------------------------------------------------------  ----  ----------------------  ----  -------------  ---------------  ------------
+VLAN_dummy1                                                  4097  No                      True  192.168.1.254  192.168.1.0/24   192.168.1.1 
+VL33_33.33.33.33/33_Curiosity_Rover-mgmt                     33    No                      True  33.33.33.33    33.33.33.33/33   127.0.0.1 
+VL0_197.7.9.5/0_Voyager_0                                    0     No                      True  197.7.9.5      197.7.9.5/0      0.0.0.0
+
+Choose copy mode: [A] Automatic, [Y] Manual confirmation per subnet, [N] Cancel
+Selection (A/Y/N): A
+Copying the VLAN 4097...Done. Network uuid: 6f2aaf44-f18b-45bf-b999-4c40a7819cfc
+Copying the VLAN 33...Done. Network uuid: 947e1428-a237-4e29-84fc-f229640c9f4c
+Copying the VLAN 0...Done. Network uuid: 60424e2e-c0f2-4d56-9336-5cea3bcb6e4b
